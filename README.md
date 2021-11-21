@@ -17,6 +17,9 @@ Don't get fooled by the beauty of our website, Furstore is an online furniture p
 
 - Furstore requires [.NET](https://dotnet.microsoft.com/download) v6.0+ to run.
 - Add C# extension in Visual Studio Code
+- Press F5 to run with debugging or just type
+
+`$ dotnet run`
 
 ## Changelog
 **v11.21.2021**
