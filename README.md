@@ -15,7 +15,7 @@ Don't get fooled by the beauty of our website, Furstore is an online furniture p
 
 ## Installation
 
-- Dillinger requires [.NET](https://dotnet.microsoft.com/download) v6.0+ to run.
+- Furstore requires [.NET](https://dotnet.microsoft.com/download) v6.0+ to run.
 - Add C# extension in Visual Studio Code
 
 ## Changelog
