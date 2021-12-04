@@ -1,0 +1,198 @@
+@{
+    ViewData["Title"] = "Product Management";
+}
+
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h3>
+            <span class="las la-user"></span>
+            <span>Admin Dashboard</span>
+        </h3>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a asp-controller="Home" asp-action="AdminDashboard" >
+                    <span class="lab la-elementor"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Product" class="active">
+                    <span class="las la-shopping-cart"></span>
+                    <span>จัดการสินค้า</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="las la-user-friends"></span>
+                    <span>จัดการสมาชิก</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Dashboard
+        </h2>
+
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Search here" />
+        </div>
+
+        <div class="user-wrapper">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                width="40px" height="40px" alt="image">
+            <div>
+                <h4>Simon Hope</h4>
+                <small>Admin</small>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+        <div class="cards1">
+            
+            <div class="card-single">
+                <div>
+                    <h1>100</h1>
+                    <span>Furniture</span>
+                </div>
+                <div>
+                    <span class="las la-couch"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-grid">
+            <div class="furnitures">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Recent Furnitures</h3>
+                        <button type="button">
+                            เพิ่มสินค้า <span class="las la-arrow-right"></span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td width="10%">ลำดับ</td>
+                                        <td>ชื่อสินค้า</td>
+                                        <td>ราคา</td>
+                                        <td>จำนวน</td>
+                                        <td>รายละเอียด</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>กระจกบานเลื่อน</td>
+                                        <td>4299</td>
+                                        <td>20</td>
+                                        <td>กระจกบานเลื่อน</td>
+                                        <td>
+                                            <button>แก้ไข</button>
+                                            <button>ลบ</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>ประตูไม้เมเปิ้ล</td>
+                                        <td>5999</td>
+                                        <td>35</td>
+                                        <td>ประตูไม้เมเปิ้ล made in USA</td>
+                                        <td>
+                                            <button>แก้ไข</button>
+                                            <button>ลบ</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>ตู้เสื้อผ้า 2 ประตู</td>
+                                        <td>3250</td>
+                                        <td>20</td>
+                                        <td>ตู้เสื้อผ้า 2 ประตู</td>
+                                        <td>
+                                            <button>แก้ไข</button>
+                                            <button>ลบ</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+@*  
+ <table border="0" class="content-table">
+        <thead>
+            <tr>
+                <th>ชื่อสินค้า</th>
+                <th>ราคา</th>
+                <th>จำนวน</th>
+                <th>รายละเอียด</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>กระจกบานเลื่อน</td>
+                <td>4299</td>
+                <td>20</td>
+                <td>กระจกบานเลื่อน</td>
+                <td>
+                    <button>แก้ไข</button>
+                    <button>ลบ</button>
+                </td>
+            </tr>
+            <tr>
+                <td>ประตูไม้เมเปิ้ล</td>
+                <td>5999</td>
+                <td>35</td>
+                <td>ประตูไม้เมเปิ้ล made in USA</td>
+                <td>
+                    <button>แก้ไข</button>
+                    <button>ลบ</button>
+                </td>
+            </tr>
+            <tr>
+                <td>ตู้เสื้อผ้า 2 ประตู</td>
+                <td>3250</td>
+                <td>20</td>
+                <td>ตู้เสื้อผ้า 2 ประตู</td>
+                <td>
+                    <button>แก้ไข</button>
+                    <button>ลบ</button>
+                </td>
+            </tr>
+            <tr>
+                <td>ตู้เสื้อผ้า 2 ประตู</td>
+                <td>3250</td>
+                <td>20</td>
+                <td>ตู้เสื้อผ้า 2 ประตู</td>
+                <td>
+                    <button>แก้ไข</button>
+                    <button>ลบ</button>
+                </td>
+            </tr>
+        
+        </tbody>
+    </table> *@
