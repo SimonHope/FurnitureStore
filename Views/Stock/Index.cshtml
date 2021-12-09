@@ -1,8 +1,4 @@
-<script type="text/javascript">
-    for (var i = 0; i < 10; i++) {
-        var text += "";
-    }
-</script>
+@model List<FurnitureStore.Models.StockModel>
 
 <style>
     @@font-face {
@@ -16,6 +12,13 @@
         font-size: 1vw;
         color: #525252;
         margin-left: 15px;
+        margin-right: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        -webkit-box-orient: vertical
     }
 
     p {
@@ -62,27 +65,30 @@
     .base {
         padding-left: 30vw;
         padding-right: 30vw;
+        padding-top: 50px;
         background-color: #F8F8F8;
-        height: 100vw;
+        height: 100vh;
     }
 
     .prod {
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         width: 100%;
     }
 </style>
 
 <div class="base">
     <div class="row">
-        @for (int i = 0; i < 10; i++)
+        @foreach (var item in Model)
         {
             <div class="column">
-                <div class="card">
-                    <img alt="" src="/images/01.jpg" class="prod" />
-                    <h1>Card 1</h1>
-                    <p>฿7,000</p>
-                </div>
+                <a asp-action="Product" asp-controller="Stock" asp-route-id="@item.Id">
+                    <div class="card">
+                        <img alt="" src="@item.Image" class="prod" />
+                        <h1>@item.Name</h1>
+                        <p>฿@item.Price</p>
+                    </div>
+                </a>
             </div>
         }
     </div>
