@@ -32,9 +32,14 @@ namespace FurnitureStore.Controllers
             return View();
         }
         public IActionResult AdminDashboard()
-    {
-        return View();
-    }
+        {
+            return View();
+        }
+
+        public IActionResult AdminOrder()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
