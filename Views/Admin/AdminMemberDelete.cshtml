@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
+                <a asp-controller="Admin" asp-action="AdminProduct">
                     <span class="las la-shopping-cart"></span>
                     <span>จัดการสินค้า</span>
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminMember">
+                <a asp-controller="Admin" asp-action="AdminMember" class="active">
                     <span class="las la-user-friends"></span>
                     <span>จัดการสมาชิก</span>
                 </a>
@@ -51,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Product Create
+            Member delete
         </h2>
 
         <div class="search-wrapper">
@@ -73,9 +73,11 @@
 
 
         <div class="card">
-            <div class="create-form">
-                 <form asp-action="AdminMemberDelete" asp-controller="Admin" method="post">
-                     <input type="hidden" asp-for="Id" />
+            <div class="create-form-del">
+                <form asp-action="AdminMemberDelete" asp-controller="Admin" method="post">
+                    <h2 class="text-center">ลบผู้ดูแล</h2>
+                    <h4 class="text-center">*กรุณาตรวจสอบก่อนลบข้อมูล*</h4>
+                    <input type="hidden" asp-for="Id" />
                     <p>ชื่อผู้ใช้ : </p>
                     <input asp-for="Username" type="text" disabled>
 
@@ -90,9 +92,10 @@
 
                     <p>ที่อยู่ : </p>
                     <input asp-for="Address" type="text" disabled>
-
-                    <button type="submit" >ลบ</button>
-                </form> 
+                    <div class="btn-center">
+                        <button type="submit" class="btn2">ลบ</button>
+                    </div>
+                </form>
             </div>
 
 

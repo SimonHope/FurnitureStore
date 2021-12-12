@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
+                <a asp-controller="Admin" asp-action="AdminProduct">
                     <span class="las la-shopping-cart"></span>
                     <span>จัดการสินค้า</span>
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminMember">
+                <a asp-controller="Admin" asp-action="AdminMember" class="active">
                     <span class="las la-user-friends"></span>
                     <span>จัดการสมาชิก</span>
                 </a>
@@ -51,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Product Create
+            Member Create
         </h2>
 
         <div class="search-wrapper">
@@ -70,26 +70,27 @@
     </header>
     <main>
 
-
         <div class="card">
             <div class="create-form">
                 <form asp-action="AdminMemberCreate" asp-controller="Admin" method="post">
+                    <h2 class="text-center">เพิ่มผู้ดูแล</h2>
                     <p>ชื่อผู้ใช้ : </p>
-                    <input asp-for="Username" type="text">
+                    <input asp-for="Username" type="text" required>
 
                     <p>รหัสเข้าใช้งาน : </p>
-                    <input asp-for="Password" type="password">
+                    <input asp-for="Password" type="password" required>
 
                     <p>ชื่อ : </p>
-                    <input asp-for="Name" type="text">
+                    <input asp-for="Name" type="text" required>
 
                     <p>นามสกุล : </p>
-                    <input asp-for="Surname" type="text">
+                    <input asp-for="Surname" type="text" required>
 
                     <p>ที่อยู่ : </p>
-                    <input asp-for="Address" type="text">
-
-                    <button type="submit" >เพิ่ม</button>
+                    <input asp-for="Address" type="text" required>
+                    <div class="btn-center">
+                        <button type="submit" class="btn1">เพิ่ม</button>
+                    </div>
                 </form>
             </div>
         </div>

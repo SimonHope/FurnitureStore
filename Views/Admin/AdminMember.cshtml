@@ -71,14 +71,26 @@
     </header>
     <main>
 
+        <div class="cards1">
+            <div class="card-single">
+                <div>
+                    <h1>4</h1>
+                    <span>Member</span>
+                </div>
+                <div>
+                    <span class="las la-user-tie"></span>
+                </div>
+            </div>
+        </div>
+
         <div class="recent-grid">
             <div class="Account">
                 <div class="card">
                     <div class="card-header">
                         <h3>Accounts</h3>
-                        <a asp-controller="Admin" asp-action="AdminMemberCreate">Add member</a>
+                        <a asp-controller="Admin" asp-action="AdminMemberCreate" class="a-create">เพิ่มผู้ดูแล</a>
                     </div>
-                     <div class="card-body">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
@@ -97,11 +109,13 @@
                                             <td>@item.Username</td>
                                             <td>@item.Name</td>
                                             <td>@item.Surname</td>
-                                            <td>@item.Address</td>                                            
-                                            <td><a asp-action="AdminMemberEdit" asp-controller="Admin" asp-route-id="@item.Id">
+                                            <td>@item.Address</td>
+                                            <td><a asp-action="AdminMemberEdit" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-edit">
                                                     Edit
-                                                </a> 
-                                                <a asp-action="AdminMemberDelete" asp-controller="Admin" asp-route-id="@item.Id">
+                                                </a>
+                                                <a asp-action="AdminMemberDelete" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-del">
                                                     Delete
                                                 </a>
                                         </tr>
@@ -109,7 +123,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>

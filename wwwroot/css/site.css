@@ -527,12 +527,12 @@ tr td:last-child {
 /* create form css */
 .create-form {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 60%;
   transform: translate(-50%, -50%);
   width: 350 px;
   border-radius: 5px;
-  background-color: #e5e3e3;
+  background-color: #ffffff;
   padding: 20px;
 }
 
@@ -578,6 +578,13 @@ tr td:last-child {
 .create-form-del h4 {
   color: #d33b20;
 }
+
+.create-form input,
+.create-form-del input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 /* .create-form button {
   background-color: #48be93;
   font-size: 16px;
@@ -590,12 +597,12 @@ tr td:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 .btn1 {
   background-color: #48be93;
   font-size: 16px;
   padding: 10px;
-  width: 20%;
   border-radius: 5px;
   cursor: pointer;
   color: #fff;

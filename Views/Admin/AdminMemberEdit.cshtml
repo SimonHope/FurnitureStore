@@ -22,13 +22,13 @@
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
+                <a asp-controller="Admin" asp-action="AdminProduct">
                     <span class="las la-shopping-cart"></span>
                     <span>จัดการสินค้า</span>
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="AdminMember">
+                <a asp-controller="Admin" asp-action="AdminMember" class="active">
                     <span class="las la-user-friends"></span>
                     <span>จัดการสมาชิก</span>
                 </a>
@@ -51,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Product Create
+            Member edit
         </h2>
 
         <div class="search-wrapper">
@@ -74,8 +74,9 @@
 
         <div class="card">
             <div class="create-form">
-                 <form asp-action="AdminMemberEdit" asp-controller="Admin" method="post">
-                     <input type="hidden" asp-for="Id" />
+                <form asp-action="AdminMemberEdit" asp-controller="Admin" method="post">
+                    <h2 class="text-center">แก้ไขผู้ดูแล</h2>
+                    <input type="hidden" asp-for="Id" />
                     <p>ชื่อผู้ใช้ : </p>
                     <input asp-for="Username" type="text">
 
@@ -90,9 +91,10 @@
 
                     <p>ที่อยู่ : </p>
                     <input asp-for="Address" type="text">
-
-                    <button type="submit" >บันทึก</button>
-                </form> 
+                    <div class="btn-center">
+                        <button type="submit" class="btn1">บันทึก</button>
+                    </div>
+                </form>
             </div>
 
 
