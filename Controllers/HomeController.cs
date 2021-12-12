@@ -47,6 +47,25 @@ namespace FurnitureStore.Controllers
         {
             return View();
         }
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+         public IActionResult loginclick(string username, string password)
+        {
+        
+            if (username.Equals("admin") && password.Equals("123"))
+            {
+                
+                return View("AdminDashboard");
+            }
+            else
+            {
+                ViewBag.error = "Login failed";
+                    return RedirectToAction("Login");
+            }
+        }
 
         public IActionResult AdminMember()
         {
