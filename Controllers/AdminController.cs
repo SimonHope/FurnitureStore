@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using FurnitureStore.Models;
 using FurnitureStore.Data;
 using System.Collections.Generic;
+using System;
 
 namespace FurnitureStore.Controllers
 {
@@ -29,6 +30,14 @@ namespace FurnitureStore.Controllers
             var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
             return View(exist);
         }
+
+         public async Task<IActionResult> AdminMember()
+        {
+
+            var contacts = await _context.Members.ToListAsync();
+            return View(contacts);
+        }
+        
 
         public IActionResult AdminProduct()
         {
@@ -57,16 +66,16 @@ namespace FurnitureStore.Controllers
 
         public IActionResult Login(string username, string password)
         {
-
+            
             if(username == null && password == null){
                 ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
                 return View("Login");
 
             }
             else{
-                if (username.Equals("admin") && password.Equals("123"))
+                if (username.Equals("admin") && password.Equals("123456"))
             {
-
+                
                 return View("AdminDashboard");
             }
             else
@@ -77,21 +86,47 @@ namespace FurnitureStore.Controllers
             }
 
             }
+        }
 
+        
+        
+
+        // public IActionResult Login(string username, string password)
+        // {
+
+        //     var admindata = _context.Members.ToListAsync();
+        //     bool adminuser = _context.Members.Where(x => x.Username == username).FirstOrDefaultAsync();
+        //     bool adminpass = _context.Members.Where(x => x.Password == password).FirstOrDefaultAsync();
             
-        }
+        //     if (username == null && password == null)
+        //     {
+        //         ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
+        //         return View("Login");
 
-        public IActionResult AdminMember()
-        {
-            List<AdminMemberModel> ls = new List<AdminMemberModel>();
-            ls.Add(new AdminMemberModel { Id = 001, Username = "61010910", Name = "Nuthapong", Surname = "Poonperm", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 002, Username = "61011215", Name = "Arune", Surname = "Dansugchai", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 003, Username = "62015021", Name = "Chayanin", Surname = "Buasala", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 004, Username = "62015038", Name = "Nutthapoom", Surname = "lomkret", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 005, Username = "62015063", Name = "Nuthapong", Surname = "Poonperm", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 006, Username = "62015131", Name = "Authapol", Surname = "Tuntiwatthanapol", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            return View(ls.ToList());
-        }
+        //     }
+        //     else
+        //     {
+        //         if (username.Equals(adminuser) && password.Equals(adminpass))
+        //         {
+
+        //             return View("AdminDashboard");
+        //         }
+        //         else
+        //         {
+        //             ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
+        //             ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
+        //             return View("Login");
+        //         }
+
+        //     }
+        // }
+
+
+    
+
+
+
+        
 
 
     }
