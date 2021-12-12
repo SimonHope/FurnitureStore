@@ -21,12 +21,14 @@ namespace FurnitureStore.Controllers
             var contacts = await _context.Stocks.ToListAsync();
             return View(contacts);
         }
-
+      
         [HttpGet]
         public async Task<IActionResult> Product(int id)
         {
             var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
             return View(exist);
         }
+
+        
     }
 }
