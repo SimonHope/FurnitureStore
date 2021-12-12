@@ -27,10 +27,8 @@ namespace FurnitureStore.Controllers
         {
             return View();
         }
-        public IActionResult Product()
-        {
-            return View();
-        }
+
+      
         public IActionResult AdminDashboard()
     {
         return View();

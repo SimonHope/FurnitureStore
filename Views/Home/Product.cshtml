@@ -1,6 +1,8 @@
+@model List<FurnitureStore.Models.StockModel>
 @{
     ViewData["Title"] = "Product Management";
 }
+
 
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
@@ -81,9 +83,10 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Recent Furnitures</h3>
-                        <button type="button">
+                        @* <button type="button">
                             เพิ่มสินค้า <span class="las la-arrow-right"></span>
-                        </button>
+                        </button> *@
+                        <a asp-controller="Home" asp-action="Product_Create" >เพิ่มสินค้า</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -99,39 +102,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                     <tr>
-                                        <td>1</td>
-                                        <td>กระจกบานเลื่อน</td>
-                                        <td>4299</td>
-                                        <td>20</td>
-                                        <td>กระจกบานเลื่อน</td>
+                                        <td>item.Id</td>
+                                        <td>item.Name</td>
+                                        <td>item.Price</td>
+                                        <td>item.Disc</td>
+                                        <td>item.Desc</td>
                                         <td>
                                             <button>แก้ไข</button>
                                             <button>ลบ</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>ประตูไม้เมเปิ้ล</td>
-                                        <td>5999</td>
-                                        <td>35</td>
-                                        <td>ประตูไม้เมเปิ้ล made in USA</td>
-                                        <td>
-                                            <button>แก้ไข</button>
-                                            <button>ลบ</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>ตู้เสื้อผ้า 2 ประตู</td>
-                                        <td>3250</td>
-                                        <td>20</td>
-                                        <td>ตู้เสื้อผ้า 2 ประตู</td>
-                                        <td>
-                                            <button>แก้ไข</button>
-                                            <button>ลบ</button>
-                                        </td>
-                                    </tr>
+                                    }
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -139,60 +124,41 @@
                 </div>
             </div>
 
-            
-@*  
- <table border="0" class="content-table">
-        <thead>
-            <tr>
-                <th>ชื่อสินค้า</th>
-                <th>ราคา</th>
-                <th>จำนวน</th>
-                <th>รายละเอียด</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
+<button class="open-button" onclick="openForm()">+</button>
+            <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <table>
+                <h1>Create Account</h1>
+                
+                    
+                        <label for="email"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" required>
 
-            <tr>
-                <td>กระจกบานเลื่อน</td>
-                <td>4299</td>
-                <td>20</td>
-                <td>กระจกบานเลื่อน</td>
-                <td>
-                    <button>แก้ไข</button>
-                    <button>ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ประตูไม้เมเปิ้ล</td>
-                <td>5999</td>
-                <td>35</td>
-                <td>ประตูไม้เมเปิ้ล made in USA</td>
-                <td>
-                    <button>แก้ไข</button>
-                    <button>ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ตู้เสื้อผ้า 2 ประตู</td>
-                <td>3250</td>
-                <td>20</td>
-                <td>ตู้เสื้อผ้า 2 ประตู</td>
-                <td>
-                    <button>แก้ไข</button>
-                    <button>ลบ</button>
-                </td>
-            </tr>
-            <tr>
-                <td>ตู้เสื้อผ้า 2 ประตู</td>
-                <td>3250</td>
-                <td>20</td>
-                <td>ตู้เสื้อผ้า 2 ประตู</td>
-                <td>
-                    <button>แก้ไข</button>
-                    <button>ลบ</button>
-                </td>
-            </tr>
-        
-        </tbody>
-    </table> *@
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+
+                        <label for="psw"><b>Name</b></label>
+                        <input type="text" placeholder="Enter your name" name="Fname" required>
+
+                        <label for="psw"><b>Surname</b></label>
+                        <input type="text" placeholder="Enter your surname" name="Fsurname" required>
+
+                        <label for="psw"><b>Picture</b></label>
+                        <input type="password" placeholder="Enter Password" name="Fimg" required>
+                        <tr>
+                            <button type="submit" class="btn">Add</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                        </tr>
+                </table>
+            </form>
+            </div>
+            
+<script>
+    
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
