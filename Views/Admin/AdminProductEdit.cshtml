@@ -74,11 +74,13 @@
 
         <div class="card">
             <div class="create-form">
-                 <form asp-action="AdminProductCreate" asp-controller="Admin" method="post">
+                 <form asp-action="AdminProductEdit" asp-controller="Admin" method="post">
+                     <input type="hidden" asp-for="Id" />
                     <p>ชื่อสินค้า : </p>
                     <input asp-for="Name"  type="text" />
 
                     <p>รายละเอียด : </p>
+                    
                     <input asp-for="Desc" type="text" />
 
                     <p>ราคา : </p>
