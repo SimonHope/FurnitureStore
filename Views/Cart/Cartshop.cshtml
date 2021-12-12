@@ -1,0 +1,139 @@
+@{
+    ViewData["Title"] = "Cartshop";
+}
+
+@model FurnitureStore.Models.StockModel
+
+<style>
+@@font-face {
+        font-family: 'Supermarket';
+        src: url('/fonts/supermarket.ttf');
+    }
+* {
+    font-family: 'Supermarket';
+}
+
+
+.Cartshop{        
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 50px;
+}
+
+h1{
+    color: #0B6E4F;
+}
+
+input[type=remove] {
+  width: 100px;
+  background-color: #5B1312;
+  color: white;
+  border: none;
+  padding-left: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=remove]:hover {
+  background-color: #45a049;
+}
+
+</style>
+
+
+
+<div class="Cartshop">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Cartshop</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                
+                                <thead>
+                                    <tr>
+                                        <td width="15%">รูปสินค้า</td>
+                                        <td >ชื่อสินค้า</td>
+                                        <td > จำนวน</td>
+                                        <td >ราคา/หน่วย</td>
+                                        <td>ราคารวม</td>
+                                      
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr>
+                                        <td>
+                                            <img src="https://sv1.picz.in.th/images/2021/12/12/62HXWk.jpg" width="100px" height="180px" >
+                                        </td>
+                                        <td><h4>ตู้เสื้อผ้า</h4><br>
+                                        </td>
+                                        <td>
+                                            <select id="QTY" name="QTY">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            2000.00
+                                        </td>
+                                        <td>
+                                            4000.00
+                                        </td>
+                                        <td>
+                                        <h3 style="color:#5B1312"><ul>remove</ul></h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="https://sv1.picz.in.th/images/2021/12/12/62agMl.jpg" width="100px" height="180px" >
+                                        </td>
+                                        <td><h4>เตียง</h4><br>
+                                        สีดำ<br>
+                                        ขนาด 18x19 cm<br>
+                                        รหัสสินค้า 002<br>
+                                        </td>
+                                        <td>
+                                            <select id="QTY" name="QTY">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            10000.00
+                                        </td>
+                                        <td>
+                                            10000.00
+                                        </td>
+                                        <td>
+                                        <h3 style="color:#5B1312"><ul>remove</ul></h3>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                                    
+                                    <tr style="border-top: 1px solid #f0f0f0;">
+                                        <td><a asp-controller="Stock" asp-action="Index" style="color:#5B1312">กลับไปซื้อสินค้า</a> 
+                                        </td>
+                                        <td></td>
+                                        <td>ราคารวมทั้งหมด 4000.00</td>
+                                        <td></td>
+                                        
+                                        <td><h3 class="display-4"><a asp-controller="Cart" asp-action="Confirm" style="color:#0B6E4F">ชำระสินค้า>></a></h3>
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>

@@ -1,0 +1,144 @@
+@model FurnitureStore.Models.OrderModel;
+
+@{
+    ViewData["Title"] = "Confirm";
+}
+
+
+
+
+<style>
+@@font-face {
+        font-family: 'Supermarket';
+        src: url('/fonts/supermarket.ttf');
+    }
+*{
+    font-family: 'Supermarket';
+    background-color: #f8f8f8;
+}
+
+.Confirm{        
+    padding-left: 30vw;
+    padding-right: 30vw;
+    padding-top: 60px;
+}
+
+table{
+
+}
+
+h1{
+    color: #0B6E4F;
+}
+h2{
+  padding: 12px 20px;
+}
+
+/*input[type=text],textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}*/
+textarea {
+  resize: none;
+}
+
+.card-container {
+    padding: 12px 20px;
+    margin: 8px 0;
+    dispaly:grid;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgb(145, 145, 145);
+    border-radius: 4px;
+}
+
+</style>
+
+
+
+<div class="Confirm">
+                <div class="card">
+                    <div class="card-header">
+                        <h1>ชำระสินค้า</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                    <tr >
+                                        <td width="50%">
+                                            <form  asp-action="" asp-controller="Cart" method="post">
+                                                <p>ชื่อ-นามสกุล : </p>
+                                                <input asp-for="Name" type="text" required>
+
+                                                <p>เบอร์ติดต่อ : </p>
+                                                <input asp-for="Tel" type="text" required>
+
+                                                <p>ที่อยู่ : </p>
+                                                <textarea asp-for="Tel" type="text" required></textarea>
+                                                <div class="btn-center">
+                                                    <button type="submit" class="btn1">ยืนยันการสั่งซื้อ</button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <div class="card-container">
+                                                    <table width ="100%" >
+                                                         <h2>สรุปการสั่งซื้อ</h2>
+                                                            <tr>
+                                                                <td> ชื่อสินค้า </td>
+                                                                <td> จำนวน </td>
+                                                                <td> ราคา </td>
+                                                                <td> รวม </td>
+                                                            </tr>
+                                                            <tr >
+                                                                <td>ตู้เย็น</td>
+                                                                <td>2</td>
+                                                                <td>2000.00฿</td>
+                                                                <td>4000.00฿</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>เตียง</td>
+                                                                <td>1</td>
+                                                                <td>1400.00฿</td>
+                                                                <td>1400.00฿</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>รวมเป็นเงินสุทธิ</td>
+                                                                <td>
+                                                                    5400.00฿</td>
+                                                            </tr>
+                                                    </table>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <a asp-controller="Stock" asp-action="Index" style="color:#5B1312">กลับไปซื้อสินค้า</a>
+                                        </td>
+                                        <td></td>
+                                        <td></td> 
+                                        <td>
+                                             
+                                        </td>
+                                    </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
