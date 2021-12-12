@@ -72,6 +72,7 @@ namespace FurnitureStore.Controllers
             else
             {
                 ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
+                ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
                 return View("Login");
             }
 
