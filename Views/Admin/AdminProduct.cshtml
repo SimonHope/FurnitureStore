@@ -88,7 +88,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Furnitures</h3>
-                        <a asp-controller="Admin" asp-action="AdminProductCreate" class="a-create">เพิ่มสินค้า</a>
+                        <a asp-controller="Admin" asp-action="AdminProductCreate" class="a-create">เพิ่มสินค้า<span
+                                class="las la-arrow-right"></span></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -112,29 +113,26 @@
                                             <td>@item.Name</td>
                                             <td>@item.Price</td>
                                             <td>@item.Disc</td>
-                                            <td><img alt="" src="@item.Image" width="120" height="120"/></td>
+                                            <td><img alt="" src="@item.Image" width="120" height="120" /></td>
                                             <td>@item.Desc</td>
                                             <td>
-                                                <a asp-action="AdminProductEdit" asp-controller="Admin" asp-route-id="@item.Id" class="a-edit">
+                                                <a asp-action="AdminProductEdit" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-edit">
                                                     Edit
                                                 </a>
-                                                <a asp-action="AdminProductDelete" asp-controller="Admin" asp-route-id="@item.Id" class="a-del">
+                                                <a asp-action="AdminProductDelete" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-del">
                                                     Delete
                                                 </a>
-                                                
-                                                
                                             </td>
                                         </tr>
                                     }
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-            
         </div>
     </main>
 </div>

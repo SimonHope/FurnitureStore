@@ -11,7 +11,7 @@ using System;
 namespace FurnitureStore.Controllers
 {
     public class AdminController : Controller
-    {        
+    {
         private ApplicationDbContext _context;
         public AdminController(ApplicationDbContext context)
         {
@@ -24,12 +24,18 @@ namespace FurnitureStore.Controllers
             return View(contacts);
         }
 
+        public async Task<IActionResult> AdminDashboard()
+        {
+            var contacts = await _context.Stocks.ToListAsync();
+            return View(contacts);
+        }
+
         public async Task<IActionResult> AdminMember()
         {
             var contacts = await _context.Members.ToListAsync();
             return View(contacts);
         }
-    
+
         [HttpGet]
         public IActionResult AdminMemberCreate()
         {
@@ -48,11 +54,11 @@ namespace FurnitureStore.Controllers
 
                     return RedirectToAction("AdminMember");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
                 }
-                
+
             }
 
             ModelState.AddModelError(string.Empty, "Something went wrong");
@@ -68,15 +74,8 @@ namespace FurnitureStore.Controllers
             return View(exist);
         }
 
-         public async Task<IActionResult> AdminMember()
-        {
-
-            var contacts = await _context.Members.ToListAsync();
-            return View(contacts);
-        }
-        
-
-        public IActionResult AdminProduct()
+        [HttpPost]
+        public async Task<IActionResult> AdminMemberEdit(AdminMemberModel Members)
         {
             // validate that our model meets the requirement
             if (ModelState.IsValid)
@@ -87,7 +86,7 @@ namespace FurnitureStore.Controllers
                     var exist = _context.Members.Where(x => x.Id == Members.Id).FirstOrDefault();
 
                     // if the contact is not null we update the information
-                    if(exist != null)
+                    if (exist != null)
                     {
                         exist.Username = Members.Username;
                         exist.Password = Members.Password;
@@ -101,7 +100,7 @@ namespace FurnitureStore.Controllers
                         return RedirectToAction("AdminMember");
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
                 }
@@ -129,15 +128,15 @@ namespace FurnitureStore.Controllers
                 {
                     var exist = _context.Members.Where(x => x.Id == Members.Id).FirstOrDefault();
 
-                    if(exist != null)
+                    if (exist != null)
                     {
                         _context.Remove(exist);
                         await _context.SaveChangesAsync();
 
                         return RedirectToAction("AdminMember");
-                    } 
+                    }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
                 }
@@ -258,15 +257,6 @@ namespace FurnitureStore.Controllers
             return View();
         }
 
-
-
-
-
-        public IActionResult AdminDashboard()
-        {
-            return View();
-        }
-
         public IActionResult AdminOrder()
         {
             return View();
@@ -279,68 +269,28 @@ namespace FurnitureStore.Controllers
 
         public IActionResult Login(string username, string password)
         {
-            
-            if(username == null && password == null){
+
+            if (username == null && password == null)
+            {
                 ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
                 return View("Login");
 
             }
-            else{
-                if (username.Equals("admin") && password.Equals("123456"))
-            {
-                
-                return View("AdminDashboard");
-            }
             else
             {
-                ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
-                ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
-                return View("Login");
-            }
+                if (username.Equals("admin") && password.Equals("123456"))
+                {
+
+                    return RedirectToAction("AdminDashboard");
+                }
+                else
+                {
+                    ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
+                    return View("Login");
+                }
 
             }
         }
-
-        
-        
-
-        // public IActionResult Login(string username, string password)
-        // {
-
-        //     var admindata = _context.Members.ToListAsync();
-        //     bool adminuser = _context.Members.Where(x => x.Username == username).FirstOrDefaultAsync();
-        //     bool adminpass = _context.Members.Where(x => x.Password == password).FirstOrDefaultAsync();
-            
-        //     if (username == null && password == null)
-        //     {
-        //         ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
-        //         return View("Login");
-
-        //     }
-        //     else
-        //     {
-        //         if (username.Equals(adminuser) && password.Equals(adminpass))
-        //         {
-
-        //             return View("AdminDashboard");
-        //         }
-        //         else
-        //         {
-        //             ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
-        //             ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
-        //             return View("Login");
-        //         }
-
-        //     }
-        // }
-
-
-    
-
-
-
-        
-
 
     }
 }

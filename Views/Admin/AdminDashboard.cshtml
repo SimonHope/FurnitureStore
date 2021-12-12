@@ -1,3 +1,4 @@
+@model List<FurnitureStore.Models.StockModel>
 @{
     ViewData["Title"] = "Admin Dashboard";
 }
@@ -59,7 +60,7 @@
         </div>
 
         <div class="user-wrapper">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                 width="40px" height="40px" alt="image">
             <div>
                 <h4>Simon Hope</h4>
@@ -111,19 +112,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>เก้าอี้</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>เตียง</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>ประตู</td>
-                                    </tr>
-                                </tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                        </tr>
+                                    }
                             </table>
                         </div>
                     </div>

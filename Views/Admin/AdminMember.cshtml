@@ -60,7 +60,7 @@
         </div>
 
         <div class="user-wrapper">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                 width="40px" height="40px" alt="image">
             <div>
                 <h4>Simon Hope</h4>
@@ -88,7 +88,8 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Accounts</h3>
-                        <a asp-controller="Admin" asp-action="AdminMemberCreate" class="a-create">เพิ่มผู้ดูแล</a>
+                        <a asp-controller="Admin" asp-action="AdminMemberCreate" class="a-create">เพิ่มผู้ดูแล<span
+                                class="las la-arrow-right"></span></a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -118,11 +119,7 @@
                                                 asp-route-id="@item.Id" class="a-del">
                                                     Delete
                                                 </a>
-                                            <td style="text-align: center;">
-                                                
                                             </td>
-                                            <td><button style="width: 60px; height: 30px">Edit</button> <button
-                                                style="width: 60px; height: 30px">Delete</button></td>
                                         </tr>
                                     }
                                 </tbody>
