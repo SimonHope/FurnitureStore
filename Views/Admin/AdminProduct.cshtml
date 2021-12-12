@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Product Management";
 }
-
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
@@ -16,21 +16,27 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a asp-controller="Home" asp-action="AdminDashboard" >
+                <a asp-controller="Admin" asp-action="AdminDashboard">
                     <span class="lab la-elementor"></span>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a asp-controller="Home" asp-action="Product" class="active">
+                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
                     <span class="las la-shopping-cart"></span>
                     <span>จัดการสินค้า</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a asp-controller="Admin" asp-action="AdminMember">
                     <span class="las la-user-friends"></span>
                     <span>จัดการสมาชิก</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminOrder">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Order</span>
                 </a>
             </li>
         </ul>
@@ -45,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Dashboard
+            Product
         </h2>
 
         <div class="search-wrapper">
@@ -66,7 +72,7 @@
     <main>
 
         <div class="cards1">
-            
+
             <div class="card-single">
                 <div>
                     <h1>100</h1>
@@ -85,8 +91,8 @@
                         <h3>Recent Furnitures</h3>
                         @* <button type="button">
                             เพิ่มสินค้า <span class="las la-arrow-right"></span>
-                        </button> *@
-                        <a asp-controller="Home" asp-action="Product_Create" >เพิ่มสินค้า</a>
+                            </button> *@
+                        <a asp-controller="Admin" asp-action="AdminProductCreate">เพิ่มสินค้า</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -102,21 +108,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @* @foreach (var item in Model)
-                                    { *@
-                                    <tr>
-                                        <td>item.Id</td>
-                                        <td>item.Name</td>
-                                        <td>item.Price</td>
-                                        <td>item.Disc</td>
-                                        <td>item.Desc</td>
-                                        <td>
-                                            <button>แก้ไข</button>
-                                            <button>ลบ</button>
-                                        </td>
-                                    </tr>
-                                    @* } *@
-                                    
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>item.Id</td>
+                                            <td>item.Name</td>
+                                            <td>item.Price</td>
+                                            <td>item.Disc</td>
+                                            <td>item.Desc</td>
+                                            <td>
+                                                <button>แก้ไข</button>
+                                                <button>ลบ</button>
+                                            </td>
+                                        </tr>
+                                    }
+
                                 </tbody>
                             </table>
                         </div>
@@ -124,13 +130,13 @@
                 </div>
             </div>
 
-<button class="open-button" onclick="openForm()">+</button>
+            <button class="open-button" onclick="openForm()">+</button>
             <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-                <table>
-                <h1>Create Account</h1>
-                
-                    
+                <form action="/action_page.php" class="form-container">
+                    <table>
+                        <h1>Create Account</h1>
+
+
                         <label for="email"><b>Username</b></label>
                         <input type="text" placeholder="Enter Email" name="email" required>
 
@@ -149,16 +155,9 @@
                             <button type="submit" class="btn">Add</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                         </tr>
-                </table>
-            </form>
+                    </table>
+                </form>
             </div>
-            
-<script>
-    
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
+        </div>
+    </main>
+</div>

@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Product Create";
 }
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 <input type="checkbox" id="nav-toggle">
 <div class="sidebar">
@@ -15,21 +16,27 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a asp-controller="Home" asp-action="AdminDashboard" >
+                <a asp-controller="Admin" asp-action="AdminDashboard">
                     <span class="lab la-elementor"></span>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <a asp-controller="Home" asp-action="Product" class="active">
+                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
                     <span class="las la-shopping-cart"></span>
                     <span>จัดการสินค้า</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a asp-controller="Admin" asp-action="AdminMember">
                     <span class="las la-user-friends"></span>
                     <span>จัดการสมาชิก</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminOrder">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Order</span>
                 </a>
             </li>
         </ul>
@@ -44,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Dashboard
+            Product Create
         </h2>
 
         <div class="search-wrapper">
@@ -64,31 +71,31 @@
     </header>
     <main>
 
-       
-                <div class="card">
-                    <div class="create-form">
-                    <form action="">
-                        <p>ชื่อสินค้า : </p>  
-                        <input type="text" name="p_name" id="">
-                        
-                        <p>รายละเอียด : </p>
-                        @* <textarea name="p_desc" cols="30" rows="10"></textarea> *@
-                        <input type="text" name="p_desc" id="">
-                        
-                        <p>ราคา : </p>
-                        <input type="number" name="p_price" id="">
-                        
-                        <p>จำนวน : </p>
-                        <input type="number" name="p_qty" id="">
-                        
-                        <p>รูปภาพ : </p>
-                        <input type="file" name="p_img" id="">
-                        
-                        <button type="button">บันทึก</button>
-                    </form>
-                    </div>
-                     
-                       
-                </div>
+
+        <div class="card">
+            <div class="create-form">
+                <form action="">
+                    <p>ชื่อสินค้า : </p>
+                    <input type="text" name="p_name" id="">
+
+                    <p>รายละเอียด : </p>
+                    @* <textarea name="p_desc" cols="30" rows="10"></textarea> *@
+                    <input type="text" name="p_desc" id="">
+
+                    <p>ราคา : </p>
+                    <input type="number" name="p_price" id="">
+
+                    <p>จำนวน : </p>
+                    <input type="number" name="p_qty" id="">
+
+                    <p>รูปภาพ : </p>
+                    <input type="file" name="p_img" id="">
+
+                    <button type="button">บันทึก</button>
+                </form>
+            </div>
+
+
+        </div>
 
     </main>
