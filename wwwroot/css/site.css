@@ -485,7 +485,7 @@ tr td:last-child {
 }
 /* create form css */
 .create-form {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);

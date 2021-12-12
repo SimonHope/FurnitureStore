@@ -1,0 +1,101 @@
+@model FurnitureStore.Models.AdminMemberModel
+@{
+    ViewData["Title"] = "Member Edit";
+}
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h3>
+            <span class="las la-user"></span>
+            <span>Admin Dashboard</span>
+        </h3>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminDashboard">
+                    <span class="lab la-elementor"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminProduct" class="active">
+                    <span class="las la-shopping-cart"></span>
+                    <span>จัดการสินค้า</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminMember">
+                    <span class="las la-user-friends"></span>
+                    <span>จัดการสมาชิก</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminOrder">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Order</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Product Create
+        </h2>
+
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Search here" />
+        </div>
+
+        <div class="user-wrapper">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                width="40px" height="40px" alt="image">
+            <div>
+                <h4>Simon Hope</h4>
+                <small>Admin</small>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+
+        <div class="card">
+            <div class="create-form">
+                 <form asp-action="AdminMemberEdit" asp-controller="Admin" method="post">
+                     <input type="hidden" asp-for="Id" />
+                    <p>ชื่อผู้ใช้ : </p>
+                    <input asp-for="Username" type="text">
+
+                    <p>รหัสเข้าใช้งาน : </p>
+                    <input asp-for="Password" type="text">
+
+                    <p>ชื่อ : </p>
+                    <input asp-for="Name" type="text">
+
+                    <p>นามสกุล : </p>
+                    <input asp-for="Surname" type="text">
+
+                    <p>ที่อยู่ : </p>
+                    <input asp-for="Address" type="text">
+
+                    <button type="submit" >บันทึก</button>
+                </form> 
+            </div>
+
+
+        </div>
+
+    </main>

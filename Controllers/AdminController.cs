@@ -6,32 +6,138 @@ using Microsoft.Extensions.Logging;
 using FurnitureStore.Models;
 using FurnitureStore.Data;
 using System.Collections.Generic;
+using System;
 
 namespace FurnitureStore.Controllers
 {
     public class AdminController : Controller
-    {
+    {        
         private ApplicationDbContext _context;
         public AdminController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Product()
+        public async Task<IActionResult> AdminProduct()
         {
             var contacts = await _context.Stocks.ToListAsync();
             return View(contacts);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Product(int id)
+        public async Task<IActionResult> AdminMember()
         {
-            var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var contacts = await _context.Members.ToListAsync();
+            return View(contacts);
+        }
+    
+        [HttpGet]
+        public IActionResult AdminMemberCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminMemberCreate(AdminMemberModel Members)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _context.Members.AddAsync(Members);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("AdminMember");
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+                }
+                
+            }
+
+            ModelState.AddModelError(string.Empty, "Something went wrong");
+
+            return View(Members);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AdminMemberEdit(int id)
+        {
+            var exist = await _context.Members.Where(x => x.Id == id).FirstOrDefaultAsync();
+
             return View(exist);
         }
 
-        public IActionResult AdminProduct()
+        [HttpPost]
+        public async Task<IActionResult> AdminMemberEdit(AdminMemberModel Members)
         {
+            // validate that our model meets the requirement
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Check if the contact exist based on the id
+                    var exist = _context.Members.Where(x => x.Id == Members.Id).FirstOrDefault();
+
+                    // if the contact is not null we update the information
+                    if(exist != null)
+                    {
+                        exist.Username = Members.Username;
+                        exist.Password = Members.Password;
+                        exist.Name = Members.Name;
+                        exist.Surname = Members.Surname;
+                        exist.Address = Members.Address;
+
+                        // we save the changes into the db
+                        await _context.SaveChangesAsync();
+
+                        return RedirectToAction("AdminMember");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
+
+            return View(Members);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AdminMemberDelete(int id)
+        {
+            var exist = await _context.Members.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            return View(exist);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminMemberDelete(AdminMemberModel Members)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var exist = _context.Members.Where(x => x.Id == Members.Id).FirstOrDefault();
+
+                    if(exist != null)
+                    {
+                        _context.Remove(exist);
+                        await _context.SaveChangesAsync();
+
+                        return RedirectToAction("AdminMember");
+                    } 
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
+
             return View();
         }
 
@@ -48,18 +154,6 @@ namespace FurnitureStore.Controllers
         public IActionResult AdminOrder()
         {
             return View();
-        }
-
-        public IActionResult AdminMember()
-        {
-            List<AdminMemberModel> ls = new List<AdminMemberModel>();
-            ls.Add(new AdminMemberModel { Id = 001, Username = "61010910", Name = "Nuthapong", Surname = "Poonperm", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 002, Username = "61011215", Name = "Arune", Surname = "Dansugchai", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 003, Username = "62015021", Name = "Chayanin", Surname = "Buasala", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 004, Username = "62015038", Name = "Nutthapoom", Surname = "lomkret", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 005, Username = "62015063", Name = "Nuthapong", Surname = "Poonperm", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            ls.Add(new AdminMemberModel { Id = 006, Username = "62015131", Name = "Authapol", Surname = "Tuntiwatthanapol", Picture = "https://www.inhome.co.th/wp-content/uploads/2018/10/be-1560-s-cem-2.jpg" });
-            return View(ls.ToList());
         }
 
 

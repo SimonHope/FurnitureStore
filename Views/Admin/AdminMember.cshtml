@@ -76,11 +76,9 @@
                 <div class="card">
                     <div class="card-header">
                         <h3>Accounts</h3>
-                        <button type="button">
-                            เพิ่มสินค้า
-                        </button>
+                        <a asp-controller="Admin" asp-action="AdminMemberCreate">Add member</a>
                     </div>
-                    <div class="card-body">
+                     <div class="card-body">
                         <div class="table-responsive">
                             <table width="100%">
                                 <thead>
@@ -88,8 +86,8 @@
                                         <td>Username</td>
                                         <td>Name</td>
                                         <td>Surname</td>
-                                        <td>Picture</td>
-                                        <td>Manage</td>
+                                        <td>Address</td>
+                                        <td style="text-align: right;">Actions</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -99,50 +97,20 @@
                                             <td>@item.Username</td>
                                             <td>@item.Name</td>
                                             <td>@item.Surname</td>
-                                            <td style="text-align: center;">
-                                                <div class="user-wrapper">
-                                                    <center><img src="@item.Picture" alt="image"
-                                                        style="height: 40px; width:40px "></center>
-                                                </div>
-                                            </td>
-                                            <td><button style="width: 60px; height: 30px">Edit</button> <button
-                                                style="width: 60px; height: 30px">Delete</button></td>
+                                            <td>@item.Address</td>                                            
+                                            <td><a asp-action="AdminMemberEdit" asp-controller="Admin" asp-route-id="@item.Id">
+                                                    Edit
+                                                </a> 
+                                                <a asp-action="AdminMemberDelete" asp-controller="Admin" asp-route-id="@item.Id">
+                                                    Delete
+                                                </a>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> 
                 </div>
-            </div>
-
-            <button class="open-button" onclick="openForm()">+</button>
-            <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
-                    <table>
-                        <h1>Create Account</h1>
-
-
-                        <label for="email"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
-
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-
-                        <label for="psw"><b>Name</b></label>
-                        <input type="text" placeholder="Enter your name" name="Fname" required>
-
-                        <label for="psw"><b>Surname</b></label>
-                        <input type="text" placeholder="Enter your surname" name="Fsurname" required>
-
-                        <label for="psw"><b>Picture</b></label>
-                        <input type="password" placeholder="Enter Password" name="Fimg" required>
-                        <tr>
-                            <button type="submit" class="btn">Add</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-                        </tr>
-                    </table>
-                </form>
             </div>
         </div>
     </main>
