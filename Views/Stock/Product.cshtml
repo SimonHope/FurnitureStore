@@ -56,11 +56,14 @@
 
 <div class="base">
     <div class="card-container">
-        <img alt="" src="@Html.DisplayFor(model => model.Image)" class="prod">
-        <p>@Html.DisplayFor(model => model.Desc)</p>
+        <div class="buy">
+            <h1>@Html.DisplayFor(model => model.Name)</h1>
+        </div>
         <div class="buy">
             <h1>฿@Html.DisplayFor(model => model.Price)</h1>
             <a>Proceed to checkout</a>
         </div>
+        <img alt="" src="@Html.DisplayFor(model => model.Image)" class="prod">
+        <p>@Html.DisplayFor(model => model.Desc)</p>
     </div>
 </div>
