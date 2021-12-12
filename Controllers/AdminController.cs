@@ -58,16 +58,26 @@ namespace FurnitureStore.Controllers
         public IActionResult Login(string username, string password)
         {
 
-            if (username.Equals("admin") && password.Equals("123"))
+            if(username == null && password == null){
+                ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
+                return View("Login");
+
+            }
+            else{
+                if (username.Equals("admin") && password.Equals("123"))
             {
 
                 return View("AdminDashboard");
             }
             else
             {
-                ViewBag.error = "Login failed";
+                ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
                 return View("Login");
             }
+
+            }
+
+            
         }
 
         public IActionResult AdminMember()

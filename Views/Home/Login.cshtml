@@ -7,7 +7,7 @@
       <li><a asp-controller="Home" asp-action="index" class="active">หน้าหลัก</a></li>
   </ul>
 </header>
- @ViewBag.error
+ 
 
 <section>
     <img src="../images/1.png" id="ball1" data-speed="-9"class="layer" >
@@ -17,12 +17,14 @@
     FurnitureStore
     </div>
     <div class="frame1">
+      @ViewBag.error
         <h2 style="padding: 10px;">เข้าสู่ระบบ</h2>
         <form method="post" action="@Url.Action("Login", "Admin")">
             <input class="boxlogin" type="text" placeholder="Username" name="username"></p>
             <input class="boxlogin" type="password" placeholder="Password" name="password"></p>
             <button class="button" style="vertical-align:middle" type="submit" value="login"><span>Login </span></button>
         </form>
+         
     </div>
     @* <img src="../images/3.png" id="ball3" data-speed="30" class="layer"> *@
     <img src="../images/4.png" id="ball4" data-speed="-19" class="layer">
