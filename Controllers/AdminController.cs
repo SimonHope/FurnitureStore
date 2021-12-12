@@ -23,7 +23,7 @@ namespace FurnitureStore.Controllers
             var contacts = await _context.Stocks.ToListAsync();
             return View(contacts);
         }
-       
+
         [HttpGet]
         public IActionResult AdminProductCreate()
         {
@@ -42,11 +42,11 @@ namespace FurnitureStore.Controllers
 
                     return RedirectToAction("AdminProduct");
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
                 }
-                
+
             }
 
             ModelState.AddModelError(string.Empty, "Something went wrong");
@@ -54,90 +54,90 @@ namespace FurnitureStore.Controllers
             return View(Stocks);
         }
 
-[HttpGet]
-public async Task<IActionResult> AdminProductEdit(int id)
-{
-    var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
-
-    return View(exist);
-}
-
-[HttpPost]
-public async Task<IActionResult> AdminProductEdit(StockModel Stocks)
-{
-    // validate that our model meets the requirement
-    if (ModelState.IsValid)
-    {
-        try
+        [HttpGet]
+        public async Task<IActionResult> AdminProductEdit(int id)
         {
-            // Check if the contact exist based on the id
-            var exist = _context.Stocks.Where(x => x.Id == Stocks.Id).FirstOrDefault();
+            var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
 
-            // if the contact is not null we update the information
-            if(exist != null)
+            return View(exist);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminProductEdit(StockModel Stocks)
+        {
+            // validate that our model meets the requirement
+            if (ModelState.IsValid)
             {
-                exist.Name = Stocks.Name;
-                exist.Desc = Stocks.Desc;
-                exist.Price = Stocks.Price;
-                exist.Disc = Stocks.Disc;
-                exist.Image = Stocks.Image;
+                try
+                {
+                    // Check if the contact exist based on the id
+                    var exist = _context.Stocks.Where(x => x.Id == Stocks.Id).FirstOrDefault();
 
-                // we save the changes into the db
-                await _context.SaveChangesAsync();
+                    // if the contact is not null we update the information
+                    if (exist != null)
+                    {
+                        exist.Name = Stocks.Name;
+                        exist.Desc = Stocks.Desc;
+                        exist.Price = Stocks.Price;
+                        exist.Disc = Stocks.Disc;
+                        exist.Image = Stocks.Image;
 
-                return RedirectToAction("AdminProduct");
+                        // we save the changes into the db
+                        await _context.SaveChangesAsync();
+
+                        return RedirectToAction("AdminProduct");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+                }
             }
+
+            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
+
+            return View(Stocks);
         }
-        catch(Exception ex)
+
+        [HttpGet]
+        public async Task<IActionResult> AdminProductDelete(int id)
         {
-            ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+            var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            return View(exist);
         }
-    }
 
-    ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
-
-    return View(Stocks);
-}
-
-[HttpGet]
-public async Task<IActionResult> AdminProductDelete(int id)
-{
-    var exist = await _context.Stocks.Where(x => x.Id == id).FirstOrDefaultAsync();
-
-    return View(exist);
-}
-
-[HttpPost]
-public async Task<IActionResult> AdminProductDelete(StockModel Stocks)
-{
-    if (ModelState.IsValid)
-    {
-        try
+        [HttpPost]
+        public async Task<IActionResult> AdminProductDelete(StockModel Stocks)
         {
-            var exist = _context.Stocks.Where(x => x.Id == Stocks.Id).FirstOrDefault();
-
-            if(exist != null)
+            if (ModelState.IsValid)
             {
-                _context.Remove(exist);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    var exist = _context.Stocks.Where(x => x.Id == Stocks.Id).FirstOrDefault();
 
-                return RedirectToAction("AdminProduct");
-            } 
+                    if (exist != null)
+                    {
+                        _context.Remove(exist);
+                        await _context.SaveChangesAsync();
+
+                        return RedirectToAction("AdminProduct");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
+
+            return View();
         }
-        catch(Exception ex)
-        {
-            ModelState.AddModelError(string.Empty, $"Something went wrong {ex.Message}");
-        }
-    }
 
-    ModelState.AddModelError(string.Empty, $"Something went wrong, invalid model");
 
-    return View();
-}
-            
-            
 
-        
+
 
         public IActionResult AdminDashboard()
         {

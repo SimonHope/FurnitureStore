@@ -73,9 +73,10 @@
 
 
         <div class="card">
-            <div class="create-form">
+            <div class="create-form-del">
                 <form asp-action="AdminProductDelete" asp-controller="Admin" method="post">
                     <h2 class="text-center">ลบสินค้า</h2>
+                    <h4 class="text-center">*กรุณาตรวจสอบก่อนการลบสินค้า*</h4>
                     <input type="hidden" asp-for="Id" />
                     <p>ชื่อสินค้า : </p>
                     <input asp-for="Name" type="text" disabled />
