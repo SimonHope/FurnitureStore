@@ -16,6 +16,68 @@
   font-family: "Prompt", sans-serif;
 }
 
+.open-button {
+  background-color: #d3ab33;
+  color: white;
+  padding: 8px 22px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  font-size: x-large;
+  border-radius: 50%;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 500px;
+  padding: 8px;
+  background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 4px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
 .sidebar {
   width: 345px;
   position: fixed;
@@ -421,6 +483,42 @@ tr td:last-child {
     margin-left: 0rem !important;
   }
 }
+/* create form css */
+.create-form {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 350 px;
+  border-radius: 5px;
+  background-color: #e9d7a3;
+  padding: 20px;
+}
+
+.create-form p {
+  font-size: 20 px;
+  margin: 15 px 0;
+}
+
+.create-form input {
+  font-size: 16px;
+  padding: 15px 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+}
+
+.create-form button {
+  background-color: #48be93;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  left: 50%;
+}
+
+
 
 @media only screen and (max-width: 560px) {
   .cards {

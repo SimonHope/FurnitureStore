@@ -8,15 +8,15 @@ using FurnitureStore.Data;
 
 namespace FurnitureStore.Controllers
 {
-    public class StockController : Controller
+    public class AdminController : Controller
     {
         private ApplicationDbContext _context;
-        public StockController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Product()
         {
             var contacts = await _context.Stocks.ToListAsync();
             return View(contacts);
