@@ -68,8 +68,15 @@ namespace FurnitureStore.Controllers
             return View(exist);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AdminMemberEdit(AdminMemberModel Members)
+         public async Task<IActionResult> AdminMember()
+        {
+
+            var contacts = await _context.Members.ToListAsync();
+            return View(contacts);
+        }
+        
+
+        public IActionResult AdminProduct()
         {
             // validate that our model meets the requirement
             if (ModelState.IsValid)
@@ -264,6 +271,75 @@ namespace FurnitureStore.Controllers
         {
             return View();
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Login(string username, string password)
+        {
+            
+            if(username == null && password == null){
+                ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
+                return View("Login");
+
+            }
+            else{
+                if (username.Equals("admin") && password.Equals("123456"))
+            {
+                
+                return View("AdminDashboard");
+            }
+            else
+            {
+                ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
+                ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
+                return View("Login");
+            }
+
+            }
+        }
+
+        
+        
+
+        // public IActionResult Login(string username, string password)
+        // {
+
+        //     var admindata = _context.Members.ToListAsync();
+        //     bool adminuser = _context.Members.Where(x => x.Username == username).FirstOrDefaultAsync();
+        //     bool adminpass = _context.Members.Where(x => x.Password == password).FirstOrDefaultAsync();
+            
+        //     if (username == null && password == null)
+        //     {
+        //         ViewBag.error = "กรุณใส่ช่องลงชื่อเข้าใช้";
+        //         return View("Login");
+
+        //     }
+        //     else
+        //     {
+        //         if (username.Equals(adminuser) && password.Equals(adminpass))
+        //         {
+
+        //             return View("AdminDashboard");
+        //         }
+        //         else
+        //         {
+        //             ViewBag.error = "เข้าสู่ระบบไม่สำเร็จ";
+        //             ViewBag.alertMessage = "เข้าสู่ระบบไม่สำเร็จ";
+        //             return View("Login");
+        //         }
+
+        //     }
+        // }
+
+
+    
+
+
+
+        
 
 
     }
