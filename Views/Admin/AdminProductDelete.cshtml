@@ -51,7 +51,7 @@
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
             </label>
-            Product Create
+            Product Delete
         </h2>
 
         <div class="search-wrapper">
@@ -74,13 +74,14 @@
 
         <div class="card">
             <div class="create-form">
-                 <form asp-action="AdminProductDelete" asp-controller="Admin" method="post">
-                     <input type="hidden" asp-for="Id" />
+                <form asp-action="AdminProductDelete" asp-controller="Admin" method="post">
+                    <h2 class="text-center">ลบสินค้า</h2>
+                    <input type="hidden" asp-for="Id" />
                     <p>ชื่อสินค้า : </p>
-                    <input asp-for="Name"  type="text" disabled />
+                    <input asp-for="Name" type="text" disabled />
 
                     <p>รายละเอียด : </p>
-                    
+
                     <input asp-for="Desc" type="text" disabled />
 
                     <p>ราคา : </p>
@@ -91,9 +92,10 @@
 
                     <p>รูปภาพ : </p>
                     <input asp-for="Image" type="file" disabled />
-
-                    <button type="submit" class="btn2" >ลบ</button>
-                </form> 
+                    <div class="btn-center">
+                        <button type="submit" class="btn2">ลบ</button>
+                    </div>
+                </form>
             </div>
 
 

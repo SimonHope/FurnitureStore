@@ -45,7 +45,8 @@
   background-color: white;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type="text"],
+.form-container input[type="password"] {
   width: 100%;
   padding: 4px;
   margin: 5px 0 22px 0;
@@ -53,28 +54,29 @@
   background: #f1f1f1;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 6px 10px;
   border: none;
   cursor: pointer;
   width: 50%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
-  
 }
 
 .form-container .cancel {
   background-color: red;
 }
 
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover,
+.open-button:hover {
   opacity: 1;
 }
 
@@ -361,9 +363,9 @@ tr td:last-child {
   padding: 0.5rem 1rem;
   margin: 4px 2px;
   border: 1px solid #d3ab33;
- }
+}
 
- .a-del {
+.a-del {
   background: #d33b20;
   border-radius: 10px;
   color: #fff;
@@ -525,12 +527,12 @@ tr td:last-child {
 /* create form css */
 .create-form {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 60%;
   transform: translate(-50%, -50%);
   width: 350 px;
   border-radius: 5px;
-  background-color: #e9d7a3;
+  background-color: #e5e3e3;
   padding: 20px;
 }
 
@@ -556,25 +558,33 @@ tr td:last-child {
   border-radius: 5px;
   left: 50%;
 } */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn1 {
+  background-color: #48be93;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.btn2 {
+  background-color: #e44313;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
 
-  .btn1 {
-    background-color: #48be93;
-    font-size: 16px;
-    padding: 10px;
-    width: 20%;
-    border-radius: 5px;
-    left: 50%;
-  }
-  .btn2 {
-    background-color: #e44313;
-    font-size: 16px;
-    padding: 10px;
-    width: 20%;
-    border-radius: 5px;
-    left: 50%;
-  }
-
-
+.text-center {
+  text-align: center;
+}
 
 @media only screen and (max-width: 560px) {
   .cards {
