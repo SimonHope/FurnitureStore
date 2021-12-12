@@ -92,7 +92,7 @@
                         @* <button type="button">
                             เพิ่มสินค้า <span class="las la-arrow-right"></span>
                             </button> *@
-                        <a asp-controller="Admin" asp-action="AdminProductCreate">เพิ่มสินค้า</a>
+                        <a asp-controller="Admin" asp-action="AdminProductCreate" class="a-create">เพิ่มสินค้า</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -103,6 +103,7 @@
                                         <td>ชื่อสินค้า</td>
                                         <td>ราคา</td>
                                         <td>จำนวน</td>
+                                        <td>รูปภาพ</td>
                                         <td>รายละเอียด</td>
                                         <td>Action</td>
                                     </tr>
@@ -111,14 +112,21 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td>item.Id</td>
-                                            <td>item.Name</td>
-                                            <td>item.Price</td>
-                                            <td>item.Disc</td>
-                                            <td>item.Desc</td>
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.Disc</td>
+                                            <td><img alt="" src="@item.Image" width="120" height="120"/></td>
+                                            <td>@item.Desc</td>
                                             <td>
-                                                <button>แก้ไข</button>
-                                                <button>ลบ</button>
+                                                <a asp-action="AdminProductEdit" asp-controller="Admin" asp-route-id="@item.Id" class="a-edit">
+                                                    Edit
+                                                </a>
+                                                <a asp-action="AdminProductDelete" asp-controller="Admin" asp-route-id="@item.Id" class="a-del">
+                                                    Delete
+                                                </a>
+                                                
+                                                
                                             </td>
                                         </tr>
                                     }
