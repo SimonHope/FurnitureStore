@@ -25,12 +25,6 @@ namespace FurnitureStore.Controllers
             return View(contacts);
         }
 
-        // public async Task<IActionResult> AdminDashboard()
-        // {
-        //     var contacts = await _context.Stocks.ToListAsync();
-        //     return View(contacts);
-        // }
-
         public async Task<IActionResult> AdminDashboard()
         {
             dynamic mymodel = new ExpandoObject();

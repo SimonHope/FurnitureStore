@@ -1,190 +1,185 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@* 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Furstore</h1>
-    <h1 class="display-4"><a asp-controller="Admin" asp-action="AdminDashboard">AdminDashboard</a></h1>
-    <h1 class="display-4"><a asp-controller="Stock" asp-action="Index">All Products</a></h1>
-    <h1 class="display-4"><a asp-controller="Cart" asp-action="Cartshop">Cartshop</a></h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>d *@
-@{
-    ViewData["Title"] = "Home Page";
-}
 <link rel="stylesheet" href="~/css/homepage.css" asp-append-version="true" />
 <header>
-  <div class="logo">FurnitureStore</div>
-  <ul>
-      <li><a asp-controller="Home" asp-action="Login" class="">เข้าสู่ระบบ</a></li>
-      
-  </ul>
-</header>
+    <div class="logo">FurnitureStore</div>
+    <ul>
+        <li><a asp-controller="Home" asp-action="Login">เข้าสู่ระบบ</a></li>
 
+    </ul>
+</header>
 
 <section>
     <h1 id="text">มหกรรม เฟอร์นิเจอร์ <br> ลดราคา ! <br>
-    <button class="button" style="vertical-align:middle" ><span>ดูเฟอร์นิเจอร์ทั้งหมด </span></button>
+        <button class="button" style="vertical-align:middle"><span>ดูเฟอร์นิเจอร์ทั้งหมด </span></button>
     </h1>
-    <img src="../images/1.png" id="ball1" data-speed="-9"class="layer" >
-    <img src="../images/gil.png" id="man" >
+    <img src="../images/1.png" id="ball1" data-speed="-9" class="layer">
+    <img src="../images/gil.png" id="man">
     <img src="../images/2.png" id="ball2" data-speed="8" class="layer">
     <img src="../images/3.png" id="ball3" data-speed="-4" class="layer">
 </section>
 
-
-
 <style scoped>
-    *{
-    font-family: 'Prompt', sans-serif;
-}
-body{
-  background-color:#ffbf00;
-  
-}
+    * {
+        font-family: 'Prompt', sans-serif;
+    }
 
-.button {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #FFFF;
-  border: none;
-  color: black;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  margin: 100px;
-  
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
+    body {
+        background-color: #ffbf00;
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
+    }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
+    .button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #FFFF;
+        border: none;
+        color: black;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        margin: 100px;
 
-.button:hover span {
-  padding-right: 25px;
-}
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
 
-section{
-    position: relative;
-    padding: 100px;
-}
-section img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    object-fit: cover;
-    
-}
-section img#man{
-    position: fixed;
-    top: 30%;
-    width: auto;
-    height: auto;
-    text-align: right;
-    left: 45%;
-}
-section img#ball1{
-    position: fixed;
-    top: 30px;
-    width: auto;
-    height: auto;
-    text-align: right;
-    left: 55%;
-}
+    .button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
 
-section img#ball2{
-    position: fixed;
-    top: 65%;
-    width: auto;
-    height: auto;
-    text-align: right;
-    left: 30%;
-}
-section img#ball3{
-    position: fixed;
-    top: 40%;
-    width: auto;
-    height: auto;
-    text-align: right;
-    left: 1300px;
-}
-header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 87%;
-    z-index: 100;
-    padding: 30px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header ul li{
-    list-style: none;
+    .button:hover span {
+        padding-right: 25px;
+    }
 
-}
+    .button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
 
-header ul li a {
-    text-decoration: none;
-    color: #FFFF;
-    padding: 6px 15px;
-    border-radius: 20px;
-}
-header ul li a:hover ,
-.active {
-    background: #FFFF;
-    color: #2b1055;
-    
-}
-header .logo{
-    color: #FFFF;
-    font-size: 700;
-    text-decoration: none;
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-#text{
-    font-size: 80px;
-    margin: 80px;
-    color: #FFFF;
-}
+    section {
+        position: relative;
+        padding: 100px;
+    }
 
+    section img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+
+    }
+
+    section img#man {
+        position: fixed;
+        top: 30%;
+        width: auto;
+        height: auto;
+        text-align: right;
+        left: 45%;
+    }
+
+    section img#ball1 {
+        position: fixed;
+        top: 30px;
+        width: auto;
+        height: auto;
+        text-align: right;
+        left: 55%;
+    }
+
+    section img#ball2 {
+        position: fixed;
+        top: 65%;
+        width: auto;
+        height: auto;
+        text-align: right;
+        left: 30%;
+    }
+
+    section img#ball3 {
+        position: fixed;
+        top: 40%;
+        width: auto;
+        height: auto;
+        text-align: right;
+        left: 1300px;
+    }
+
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 87%;
+        z-index: 100;
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header ul li {
+        list-style: none;
+
+    }
+
+    header ul li a {
+        text-decoration: none;
+        color: #FFFF;
+        padding: 6px 15px;
+        border-radius: 20px;
+    }
+
+    header ul li a:hover,
+    .active {
+        background: #FFFF;
+        color: #2b1055;
+
+    }
+
+    header .logo {
+        color: #FFFF;
+        font-size: 700;
+        text-decoration: none;
+        font-size: 2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    #text {
+        font-size: 80px;
+        margin: 80px;
+        color: #FFFF;
+    }
 </style>
 
 <script>
-    document.addEventListener("mousemove" , parallax);
-    function parallax(e){
-    this.querySelectorAll('.layer').forEach(function(move) {
-      
-      var moveing_value = move.getAttribute('data-speed');
-      var x = (e.clientX * moveing_value) / 500;
-      var y = (e.clientY * moveing_value) / 500;
+    document.addEventListener("mousemove", parallax);
+    function parallax(e) {
+        this.querySelectorAll('.layer').forEach(function (move) {
 
-      move.style.transform = "translateX(" + x +"px) translateY(" + y +"px)";
+            var moveing_value = move.getAttribute('data-speed');
+            var x = (e.clientX * moveing_value) / 500;
+            var y = (e.clientY * moveing_value) / 500;
 
-      
-    });
-  }
+            move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+
+
+        });
+    }
 </script>
