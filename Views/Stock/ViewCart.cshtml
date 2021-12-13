@@ -1,0 +1,17 @@
+@using FurnitureStore.Models;
+
+<div>
+    <h1>Your cart</h1>
+    @{
+        <table>
+            @foreach (var product in ViewBag.cart)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.StockId</td>
+                    <td>@product.Qty</td>
+                </tr>
+            }
+        </table>
+    }
+</div>

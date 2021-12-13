@@ -1,5 +1,9 @@
 @model FurnitureStore.Models.StockModel
 
+<script>
+    let prodid = @Html.DisplayFor(model => model.Id);
+</script>
+
 <style>
     @@font-face {
         font-family: 'Supermarket';
@@ -61,7 +65,9 @@
         </div>
         <div class="buy">
             <h1>฿@Html.DisplayFor(model => model.Price)</h1>
-            <a>Proceed to checkout</a>
+            <p>
+                @Html.ActionLink("Add to cart", "AddToCart", "Stock", new { id = @Html.DisplayFor(model => model.Id) })
+            </p>
         </div>
         <img alt="" src="@Html.DisplayFor(model => model.Image)" class="prod">
         <p>@Html.DisplayFor(model => model.Desc)</p>
