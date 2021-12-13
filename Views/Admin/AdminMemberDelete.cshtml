@@ -66,6 +66,11 @@
                 <h4>Simon Hope</h4>
                 <small>Admin</small>
             </div>
+            <div>
+                <a asp-controller="Home" asp-action="Login" class="a-logout">
+                    Logout
+                </a>
+            </div>
         </div>
 
     </header>
@@ -80,9 +85,6 @@
                     <input type="hidden" asp-for="Id" />
                     <p>ชื่อผู้ใช้ : </p>
                     <input asp-for="Username" type="text" disabled>
-
-                    <p>รหัสเข้าใช้งาน : </p>
-                    <input asp-for="Password" type="password" disabled>
 
                     <p>ชื่อ : </p>
                     <input asp-for="Name" type="text" disabled>
