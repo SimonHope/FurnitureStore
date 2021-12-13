@@ -1,15 +1,29 @@
 @using FurnitureStore.Models;
+@model FurnitureStore.Models.StockModel;
 
-<div>
+<style>
+    .mastercart {
+        margin-right: 10vw;
+        margin-left: 10vw;
+    }
+</style>
+
+<div class="mastercart">
     <h1>Your cart</h1>
     @{
         <table>
+            <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
             @foreach (var product in ViewBag.cart)
             {
                 <tr>
                     <td>@product.Id</td>
-                    <td>@product.StockId</td>
                     <td>@product.Qty</td>
+                    <td>@product.StockId</td>
+                    @* <td>@Html.ActionLink("Delete", "DeleteCart", "Stock", new { id = Model.Id }, "")</td> *@
                 </tr>
             }
         </table>

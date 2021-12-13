@@ -11,7 +11,8 @@ namespace FurnitureStore.Controllers
 {
     public class StockController : Controller
     {
-        List<BasketModel> basketlist = new List<BasketModel>()
+        string name;
+        static List<BasketModel> basketlist = new List<BasketModel>()
         {
             new BasketModel { Id = "184.22.13.251", StockId = 4001, Qty = 1 }
         };
@@ -44,6 +45,19 @@ namespace FurnitureStore.Controllers
         {
             basketlist.Add(new BasketModel { Id = "184.22.13.251", StockId = id, Qty = 1 });
             return RedirectToAction("ViewCart");
+        }
+
+        public IActionResult DeleteCart(int id)
+        {
+            basketlist.Remove(basketlist.FirstOrDefault(p => p.StockId == id));
+            return RedirectToAction("Index");
+        }
+
+        public async void StockIdToName(int id)
+        {
+            var raw = basketlist.FirstOrDefault(p => p.StockId == id);
+            var stk = await _context.Stocks.Where(x => x.Id == raw.StockId).FirstOrDefaultAsync();
+            string name = stk.Name;
         }
     }
 }
