@@ -79,7 +79,17 @@
         <div class="cards1">
             <div class="card-single">
                 <div>
-                    <h1>4</h1>
+                    <h1>
+                        @if (Model != null)
+                        {
+                            int y = 0;
+                            @foreach (var item in Model)
+                            {
+                                y++;
+                            }
+                            <p>@y</p>
+                        }
+                    </h1>
                     <span>Member</span>
                 </div>
                 <div>

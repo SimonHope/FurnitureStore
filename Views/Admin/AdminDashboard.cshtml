@@ -79,7 +79,17 @@
         <div class="cards">
             <div class="card-single">
                 <div>
-                    <h1>54</h1>
+                    <h1>
+                        @if (Model != null)
+                        {
+                            int y = 0;
+                            @foreach (var item in Model.memberdashboard)
+                            {
+                                y++;
+                            }
+                            <p>@y</p>
+                        }
+                    </h1>
                     <span>Members</span>
                 </div>
                 <div>
@@ -89,7 +99,17 @@
 
             <div class="card-single">
                 <div>
-                    <h1>100</h1>
+                    <h1>
+                        @if (Model != null)
+                        {
+                            int y = 0;
+                            @foreach (var item in Model.stockdashboard)
+                            {
+                                y++;
+                            }
+                            <p>@y</p>
+                        }
+                    </h1>
                     <span>Furniture</span>
                 </div>
                 <div>
