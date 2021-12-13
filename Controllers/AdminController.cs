@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using FurnitureStore.Models;
 using FurnitureStore.Data;
 using System.Collections.Generic;
+using System.Dynamic;
 using System;
 
 namespace FurnitureStore.Controllers
@@ -24,10 +25,18 @@ namespace FurnitureStore.Controllers
             return View(contacts);
         }
 
+        // public async Task<IActionResult> AdminDashboard()
+        // {
+        //     var contacts = await _context.Stocks.ToListAsync();
+        //     return View(contacts);
+        // }
+
         public async Task<IActionResult> AdminDashboard()
         {
-            var contacts = await _context.Stocks.ToListAsync();
-            return View(contacts);
+            dynamic mymodel = new ExpandoObject();
+            mymodel.stockdashboard = await _context.Stocks.ToListAsync();
+            mymodel.memberdashboard = await _context.Members.ToListAsync();
+            return View(mymodel);
         }
 
         public async Task<IActionResult> AdminMember()
