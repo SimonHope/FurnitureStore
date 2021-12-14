@@ -51,6 +51,12 @@ namespace FurnitureStore.Controllers
             return RedirectToAction("Order");
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        
         public IActionResult AddToCart(int id, string name, int price)
         {
             basketlist.Add(new BasketModel { Id = "184.22.13.251", StockId = id, StockName = name, Qty = 1, Price = price });
