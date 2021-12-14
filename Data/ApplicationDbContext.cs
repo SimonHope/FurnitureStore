@@ -8,6 +8,7 @@ namespace FurnitureStore.Data
         // The DbSet property will tell EF Core tha we have a table that needs to be created
         public virtual DbSet<StockModel> Stocks { get; set; }
         public virtual DbSet<BasketModel> Baskets { get; set; }
+        public virtual DbSet<OrderModel> Orders { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
