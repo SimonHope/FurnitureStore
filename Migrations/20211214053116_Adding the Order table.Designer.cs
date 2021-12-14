@@ -7,64 +7,64 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FurnitureStore.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211214053116_Adding the Order table")]
-    partial class AddingtheOrdertable
-    {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
-#pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.0");
+    // [DbContext(typeof(ApplicationDbContext))]
+    // [Migration("20211214053116_Adding the Order table")]
+//     partial class AddingtheOrdertable
+//     {
+//         protected override void BuildTargetModel(ModelBuilder modelBuilder)
+//         {
+// #pragma warning disable 612, 618
+//             modelBuilder
+//                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("FurnitureStore.Models.BasketModel", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+//             modelBuilder.Entity("FurnitureStore.Models.BasketModel", b =>
+//                 {
+//                     b.Property<string>("Id")
+//                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("INTEGER");
+//                     b.Property<int>("Price")
+//                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Qty")
-                        .HasColumnType("INTEGER");
+//                     b.Property<int>("Qty")
+//                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("StockId")
-                        .HasColumnType("INTEGER");
+//                     b.Property<int>("StockId")
+//                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("StockName")
-                        .HasColumnType("TEXT");
+//                     b.Property<string>("StockName")
+//                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+//                     b.HasKey("Id");
 
-                    b.ToTable("Baskets");
-                });
+//                     b.ToTable("Baskets");
+//                 });
 
-            modelBuilder.Entity("FurnitureStore.Models.StockModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+//             modelBuilder.Entity("FurnitureStore.Models.StockModel", b =>
+//                 {
+//                     b.Property<int>("Id")
+//                         .ValueGeneratedOnAdd()
+//                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Desc")
-                        .HasColumnType("TEXT");
+//                     b.Property<string>("Desc")
+//                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Disc")
-                        .HasColumnType("INTEGER");
+//                     b.Property<int>("Disc")
+//                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("TEXT");
+//                     b.Property<string>("Image")
+//                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+//                     b.Property<string>("Name")
+//                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("INTEGER");
+//                     b.Property<int>("Price")
+//                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+//                     b.HasKey("Id");
 
-                    b.ToTable("Stocks");
-                });
-#pragma warning restore 612, 618
-        }
-    }
+//                     b.ToTable("Stocks");
+//                 });
+// #pragma warning restore 612, 618
+//         }
+//     }
 }
