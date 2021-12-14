@@ -2,37 +2,41 @@
 using FurnitureStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FurnitureStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211214053116_Adding the Order table")]
+    partial class AddingtheOrdertable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("FurnitureStore.Models.AdminID", b =>
+            modelBuilder.Entity("FurnitureStore.Models.BasketModel", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Price")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Qty")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("Username")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("StockId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("StockName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admin");
+                    b.ToTable("Baskets");
                 });
 
             modelBuilder.Entity("FurnitureStore.Models.StockModel", b =>

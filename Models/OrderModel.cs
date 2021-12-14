@@ -6,7 +6,6 @@ namespace FurnitureStore.Models
         public string Name { get; set; }
         public string Tel { get; set; }
         public string Address { get; set; }
-        public string IPAdr { get; set; }
-        public int CartId { get; set; }
+        public int StockId { get; set; }
     }
 }

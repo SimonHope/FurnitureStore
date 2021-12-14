@@ -6,6 +6,7 @@
     .mastercart {
         margin-right: 10vw;
         margin-left: 10vw;
+        padding-top: 50px;
     }
 
     #custom {}
@@ -13,16 +14,18 @@
     .qty {
         width: 3vw;
     }
+
+
 </style>
 
 <div class="mastercart">
     <h1>Your cart</h1>
     @{
-        <table class="custom">
-            <tr>
-                <th>Product</th>
-                <th>Amount</th>
-                <th>Price</th>
+        <table class="custom" width="100%"> 
+            <tr style="border-top: 1px solid #f0f0f0;">
+                <td>Product</td>
+                <td>Amount</td>
+                <td>Price</td>
             </tr>
             @foreach (var product in ViewBag.cart)
             {
@@ -33,7 +36,15 @@
                     <td><button>delete</button></td>
                     @* <td>@Html.ActionLink("Delete", "DeleteCart", "Stock", new { id = Model.Id }, "")</td> *@
                 </tr>
-            }
+            }    
+                <tr>
+                    <td><a asp-controller="Stock" asp-action="Index" style="color:#5B1312">กลับไปซื้อสินค้า</a></td>
+                    <td></td>
+                    <td></td>
+                    <td><h3>@Html.ActionLink("ชำระสินค้า>>", "AddOrder", "Stock")</h3>
+                    </td>
+                </tr>
+                
         </table>
     }
 </div>
