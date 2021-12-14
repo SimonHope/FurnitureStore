@@ -1,0 +1,148 @@
+@model List<FurnitureStore.Models.AdminMemberModel>
+@{
+    ViewData["Title"] = "Manage Members";
+}
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+<input type="checkbox" id="nav-toggle">
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h3>
+            <span class="las la-user"></span>
+            <span>Admin Dashboard</span>
+        </h3>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminDashboard">
+                    <span class="lab la-elementor"></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminProduct">
+                    <span class="las la-shopping-cart"></span>
+                    <span>จัดการสินค้า</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminMember" class="active">
+                    <span class="las la-user-friends"></span>
+                    <span>จัดการสมาชิก</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AdminOrder">
+                    <span class="las la-clipboard-list"></span>
+                    <span>Order</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-content">
+
+    <header>
+
+        <h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            Member
+        </h2>
+
+        <div class="search-wrapper">
+            <span class="las la-search"></span>
+            <input type="search" placeholder="Search here" />
+        </div>
+
+        <div class="user-wrapper">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+                width="40px" height="40px" alt="image">
+            <div>
+                <h4>Simon Hope</h4>
+                <small>Admin</small>
+            </div>
+            <div>
+                <a asp-controller="Home" asp-action="Login" class="a-logout">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+    </header>
+    <main>
+
+        <div class="cards1">
+            <div class="card-single">
+                <div>
+                    <h1>
+                        @if (Model != null)
+                        {
+                            int y = 0;
+                            @foreach (var item in Model)
+                            {
+                                y++;
+                            }
+                            <p>@y</p>
+                        }
+                    </h1>
+                    <span>Member</span>
+                </div>
+                <div>
+                    <span class="las la-user-tie"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-grid">
+            <div class="Account">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Accounts</h3>
+                        <a asp-controller="Admin" asp-action="AdminMemberCreate" class="a-create">เพิ่มผู้ดูแล<span
+                                class="las la-arrow-right"></span></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Name</td>
+                                        <td>Surname</td>
+                                        <td>Address</td>
+                                        <td style="text-align: right;">Actions</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Username</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Surname</td>
+                                            <td>@item.Address</td>
+                                            <td><a asp-action="AdminMemberEdit" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-edit">
+                                                    Edit
+                                                </a>
+                                                <a asp-action="AdminMemberDelete" asp-controller="Admin"
+                                                asp-route-id="@item.Id" class="a-del">
+                                                    Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -16,6 +16,70 @@
   font-family: "Prompt", sans-serif;
 }
 
+.open-button {
+  background-color: #d3ab33;
+  color: white;
+  padding: 8px 22px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  font-size: x-large;
+  border-radius: 50%;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 500px;
+  padding: 8px;
+  background-color: white;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 4px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+
 .sidebar {
   width: 345px;
   position: fixed;
@@ -282,6 +346,54 @@ tr td:last-child {
   overflow-x: auto;
 }
 
+.a-create {
+  background: var(--main-color);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--main-color);
+}
+
+.a-edit {
+  background: var(--main-color);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  margin: 4px 2px;
+  border: 1px solid var(--main-color);
+}
+
+.a-del {
+  background: #d33b20;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  margin: 4px 2px;
+  border: 1px solid #d33b20;
+}
+
+.a-logout {
+  background: #d33b20;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.5rem;
+  margin: 4px 2px 0px 10px;
+}
+
+.a-del2 {
+  background: #d33b20;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  margin: 4px 2px;
+  border: 1px solid #d33b20;
+}
+
 .member {
   display: flex;
   justify-content: space-between;
@@ -420,6 +532,102 @@ tr td:last-child {
   #nav-toggle:checked ~ .main-content {
     margin-left: 0rem !important;
   }
+}
+/* create form css */
+.create-form {
+  position: fixed;
+  top: 55%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 350 px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.create-form p {
+  font-size: 20 px;
+  margin: 15 px 0;
+}
+
+.create-form input {
+  font-size: 16px;
+  padding: 15px 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+}
+
+.create-form-del {
+  position: absolute;
+  top: 55%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 350 px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.create-form-del p {
+  font-size: 20 px;
+  margin: 15 px 0;
+}
+
+.create-form-del input {
+  font-size: 16px;
+  padding: 15px 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+}
+
+.create-form-del h4 {
+  color: #d33b20;
+}
+
+.create-form input,
+.create-form-del input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* .create-form button {
+  background-color: #48be93;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  left: 50%;
+} */
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.btn1 {
+  background-color: #48be93;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.btn2 {
+  background-color: #e44313;
+  font-size: 16px;
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @media only screen and (max-width: 560px) {

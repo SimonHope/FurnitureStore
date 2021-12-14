@@ -1,0 +1,135 @@
+*{
+    font-family: 'Prompt', sans-serif;
+}
+body{
+  background-color:#ffbf00;
+  
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #FFFF;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  margin: 100px;
+  
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+section{
+    position: relative;
+    padding: 100px;
+}
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    
+}
+section img#man{
+    position: fixed;
+    top: 30%;
+    width: auto;
+    height: auto;
+    text-align: right;
+    left: 45%;
+}
+section img#ball1{
+    position: fixed;
+    top: 30px;
+    width: auto;
+    height: auto;
+    text-align: right;
+    left: 55%;
+}
+
+section img#ball2{
+    position: fixed;
+    top: 65%;
+    width: auto;
+    height: auto;
+    text-align: right;
+    left: 30%;
+}
+section img#ball3{
+    position: fixed;
+    top: 40%;
+    width: auto;
+    height: auto;
+    text-align: right;
+    left: 1300px;
+}
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 87%;
+    z-index: 100;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header ul li{
+    list-style: none;
+
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #FFFF;
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+header ul li a:hover ,
+.active {
+    background: #FFFF;
+    color: #2b1055;
+    
+}
+header .logo{
+    color: #FFFF;
+    font-size: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+#text{
+    font-size: 80px;
+    margin: 80px;
+    color: #FFFF;
+}
