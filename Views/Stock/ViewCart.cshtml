@@ -1,4 +1,5 @@
 @using FurnitureStore.Models;
+@using FurnitureStore.Controllers;
 @model FurnitureStore.Models.StockModel;
 
 <style>
@@ -6,12 +7,18 @@
         margin-right: 10vw;
         margin-left: 10vw;
     }
+
+    #custom {}
+
+    .qty {
+        width: 3vw;
+    }
 </style>
 
 <div class="mastercart">
     <h1>Your cart</h1>
     @{
-        <table>
+        <table class="custom">
             <tr>
                 <th>Product</th>
                 <th>Amount</th>
@@ -20,9 +27,10 @@
             @foreach (var product in ViewBag.cart)
             {
                 <tr>
-                    <td>@product.Id</td>
-                    <td>@product.Qty</td>
-                    <td>@product.StockId</td>
+                    <td>@product.StockName</td>
+                    <td><input asp-for="Price" type="number" value="@product.Qty" required min="0" max="5" class="qty"></td>
+                    <td>@product.Price</td>
+                    <td><button>delete</button></td>
                     @* <td>@Html.ActionLink("Delete", "DeleteCart", "Stock", new { id = Model.Id }, "")</td> *@
                 </tr>
             }

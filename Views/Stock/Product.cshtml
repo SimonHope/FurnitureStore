@@ -66,7 +66,8 @@
         <div class="buy">
             <h1>฿@Html.DisplayFor(model => model.Price)</h1>
             <p>
-                @Html.ActionLink("Add to cart", "AddToCart", "Stock", new { id = Model.Id },
+                @Html.ActionLink("Add to cart", "AddToCart", "Stock", new { id = Model.Id, name = Model.Name, price =
+                Model.Price },
                 "")
             </p>
         </div>
